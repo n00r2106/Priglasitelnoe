@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ky">
-
 <head>
 
 <meta charset="UTF-8">
@@ -10,19 +9,10 @@
 
 <meta name="theme-color" content="#253326">
 
-<title>Сабыр & Рия | Wedding Invitation</title>
+<title>Сабыр & Рия — Wedding Invitation</title>
 
-
-<!-- =========================
-     FONTS
-========================= -->
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap"
       rel="stylesheet">
@@ -31,7 +21,7 @@
 <style>
 
 /* =====================================================
-   GLOBAL
+   RESET
 ===================================================== */
 
 * {
@@ -45,6 +35,7 @@ html {
 }
 
 body {
+    margin: 0;
     background: #f4f0e8;
     color: #1d241e;
     font-family: "Manrope", sans-serif;
@@ -76,22 +67,18 @@ a {
 :root {
 
     --olive: #253326;
-
     --olive-dark: #182219;
-
     --olive-light: #344936;
 
     --cream: #f4f0e8;
-
     --paper: #fbf8f1;
 
     --gold: #b9a06a;
 
     --text: #1d241e;
-
     --muted: #70766e;
 
-    --border: rgba(37,51,38,.18);
+    --border: rgba(37, 51, 38, 0.18);
 }
 
 
@@ -105,28 +92,34 @@ a {
 
     inset: 0;
 
-    z-index: 9999;
+    z-index: 99999;
+
+    width: 100%;
+    height: 100svh;
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
+    justify-content: center;
 
     background:
         radial-gradient(
             circle at 50% 25%,
-            rgba(185,160,106,.12),
+            rgba(185,160,106,0.13),
             transparent 35%
         ),
-        var(--olive);
+        #253326;
+
+    opacity: 1;
+
+    visibility: visible;
 
     transition:
         opacity 1s ease,
         visibility 1s ease;
 }
 
-.intro.hidden {
+.intro.hide {
 
     opacity: 0;
 
@@ -139,22 +132,22 @@ a {
 
     width: 90%;
 
-    max-width: 420px;
+    max-width: 430px;
 
     text-align: center;
 
-    color: var(--paper);
+    color: #fbf8f1;
 }
 
 .intro-label {
 
     font-size: 9px;
 
-    letter-spacing: .3em;
+    letter-spacing: 0.3em;
 
     text-transform: uppercase;
 
-    opacity: .65;
+    opacity: 0.65;
 
     margin-bottom: 25px;
 }
@@ -168,22 +161,22 @@ a {
 
     position: relative;
 
-    width: min(86vw,370px);
+    width: min(86vw, 380px);
 
     aspect-ratio: 1.42 / 1;
 
-    margin: 0 auto 30px;
+    margin: 0 auto 32px;
 
-    perspective: 1200px;
+    perspective: 1400px;
 
     filter:
         drop-shadow(
-            0 25px 35px rgba(0,0,0,.3)
+            0 25px 35px rgba(0,0,0,0.35)
         );
 }
 
 
-/* BACK */
+/* Envelope back */
 
 .envelope-back {
 
@@ -191,15 +184,20 @@ a {
 
     inset: 0;
 
-    background: #344936;
+    border-radius: 5px;
 
-    border-radius: 4px;
-
-    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            #405340,
+            #293b2c
+        );
 }
 
 
-/* CARD INSIDE */
+/* =====================================================
+   INVITATION CARD INSIDE
+===================================================== */
 
 .envelope-card {
 
@@ -211,40 +209,46 @@ a {
 
     right: 7%;
 
-    top: 10%;
+    top: 9%;
 
-    height: 82%;
+    height: 83%;
 
     display: flex;
 
     flex-direction: column;
 
-    justify-content: center;
-
     align-items: center;
+
+    justify-content: center;
 
     text-align: center;
 
-    background: var(--paper);
+    color: #20271f;
 
-    color: var(--text);
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8,
+            #eee9df
+        );
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
+        0 12px 30px rgba(0,0,0,0.18);
 
     transition:
-        transform 1.3s cubic-bezier(.2,.8,.2,1);
+        transform 1.3s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 .envelope-small {
 
     font-size: 8px;
 
-    letter-spacing: .2em;
+    letter-spacing: 0.22em;
 
     text-transform: uppercase;
 
-    color: #777d74;
+    color: #73786f;
 }
 
 .envelope-names {
@@ -253,36 +257,45 @@ a {
         "Cormorant Garamond",
         serif;
 
-    font-size: 38px;
+    font-size: 40px;
 
-    margin: 10px 0;
+    line-height: 1;
+
+    margin: 12px 0;
 }
 
 .envelope-date {
 
     font-size: 10px;
 
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
 }
 
 
-/* FLAP */
+/* =====================================================
+   ENVELOPE FLAP
+===================================================== */
 
 .envelope-flap {
 
     position: absolute;
 
-    z-index: 4;
-
-    top: 0;
+    z-index: 5;
 
     left: 0;
 
     right: 0;
 
-    height: 55%;
+    top: 0;
 
-    background: #3c4e3e;
+    height: 58%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #435544,
+            #334635
+        );
 
     clip-path:
         polygon(
@@ -294,17 +307,20 @@ a {
     transform-origin: top center;
 
     transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1);
+        transform 1.2s
+        cubic-bezier(.2,.8,.2,1);
 }
 
 
-/* FRONT */
+/* =====================================================
+   ENVELOPE FRONT
+===================================================== */
 
 .envelope-front {
 
     position: absolute;
 
-    z-index: 5;
+    z-index: 6;
 
     left: 0;
 
@@ -312,14 +328,19 @@ a {
 
     bottom: 0;
 
-    height: 57%;
+    height: 59%;
 
-    background: #314333;
+    background:
+        linear-gradient(
+            135deg,
+            #364a38,
+            #293c2d
+        );
 
     clip-path:
         polygon(
             0 0,
-            50% 56%,
+            50% 57%,
             100% 0,
             100% 100%,
             0 100%
@@ -327,47 +348,51 @@ a {
 }
 
 
-/* WAX SEAL */
+/* =====================================================
+   WAX SEAL
+===================================================== */
 
 .wax-seal {
 
     position: absolute;
 
-    z-index: 10;
-
-    top: 52%;
+    z-index: 20;
 
     left: 50%;
 
-    width: 65px;
+    top: 53%;
 
-    height: 65px;
+    width: 67px;
+
+    height: 67px;
 
     transform:
-        translate(-50%,-50%);
-
-    border-radius: 50%;
+        translate(-50%, -50%);
 
     display: flex;
 
+    align-items: center;
+
     justify-content: center;
 
-    align-items: center;
+    border-radius: 50%;
+
+    color: #f5efdf;
 
     background:
         radial-gradient(
-            circle at 35% 30%,
-            #78836e,
-            #3c4e3e 70%
+            circle at 35% 28%,
+            #89937e,
+            #465846 70%
         );
 
     border:
-        1px solid rgba(255,255,255,.35);
+        1px solid
+        rgba(255,255,255,0.35);
 
     box-shadow:
-        0 7px 15px rgba(0,0,0,.25);
-
-    color: #f1e9d8;
+        0 8px 18px
+        rgba(0,0,0,0.3);
 
     transition:
         transform .8s ease,
@@ -381,10 +406,14 @@ a {
         serif;
 
     font-size: 22px;
+
+    letter-spacing: 0.02em;
 }
 
 
-/* OPEN ANIMATION */
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
 
 .envelope.open .envelope-flap {
 
@@ -395,25 +424,27 @@ a {
 .envelope.open .envelope-card {
 
     transform:
-        translateY(-35%);
+        translateY(-38%);
 }
 
 .envelope.open .wax-seal {
 
     transform:
-        translate(-50%,-50%)
-        scale(.6);
+        translate(-50%, -50%)
+        scale(.5);
 
     opacity: 0;
 }
 
 
-/* OPEN BUTTON */
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
 
 .open-button {
 
     padding:
-        14px 28px;
+        15px 30px;
 
     border:
         1px solid
@@ -423,22 +454,28 @@ a {
 
     background: transparent;
 
-    color: var(--paper);
+    color: #fbf8f1;
 
     font-size: 10px;
 
-    letter-spacing: .18em;
+    letter-spacing: .2em;
 
     text-transform: uppercase;
 
-    transition: .3s ease;
+    transition:
+        all .3s ease;
 }
 
 .open-button:hover {
 
-    background: var(--paper);
+    background: #fbf8f1;
 
-    color: var(--olive);
+    color: #253326;
+}
+
+.open-button:disabled {
+
+    pointer-events: none;
 }
 
 
@@ -450,18 +487,18 @@ main {
 
     opacity: 0;
 
-    transform: translateY(20px);
+    visibility: hidden;
 
     transition:
         opacity 1s ease,
-        transform 1s ease;
+        visibility 1s ease;
 }
 
-main.visible {
+main.show {
 
     opacity: 1;
 
-    transform: translateY(0);
+    visibility: visible;
 }
 
 
@@ -481,7 +518,7 @@ main.visible {
 
     overflow: hidden;
 
-    background: var(--olive);
+    background: #253326;
 }
 
 .hero-image {
@@ -494,11 +531,11 @@ main.visible {
 
         linear-gradient(
             to top,
-            rgba(20,30,22,.85),
-            rgba(20,30,22,.05) 65%
+            rgba(20,30,22,.88),
+            rgba(20,30,22,.12) 70%
         ),
 
-        url("assets/photo-2.jpeg");
+        url("IMG_2765.jpeg");
 
     background-size: cover;
 
@@ -514,12 +551,11 @@ main.visible {
     width: 100%;
 
     padding:
-        100px 20px
-        60px;
+        100px 20px 65px;
 
     text-align: center;
 
-    color: var(--paper);
+    color: #fbf8f1;
 }
 
 .hero-label {
@@ -548,7 +584,7 @@ main.visible {
 
     letter-spacing: -.05em;
 
-    margin: 25px 0;
+    margin: 27px 0;
 }
 
 .hero-date {
@@ -600,7 +636,7 @@ section {
 
 .section {
 
-    width: min(1080px,100%);
+    width: min(1080px, 100%);
 
     margin: auto;
 
@@ -627,33 +663,33 @@ section {
         "Cormorant Garamond",
         serif;
 
-    font-weight: 500;
-
     font-size:
         clamp(38px,7vw,56px);
 
     line-height: 1;
 
-    color: var(--olive);
+    font-weight: 500;
+
+    color: #253326;
 
     margin-bottom: 25px;
 }
 
 
 /* =====================================================
-   INVITATION TEXT
+   INVITATION
 ===================================================== */
 
 .invitation {
 
-    background: var(--paper);
+    background: #fbf8f1;
 
     text-align: center;
 }
 
 .invitation-text {
 
-    max-width: 580px;
+    max-width: 600px;
 
     margin: auto;
 
@@ -666,7 +702,9 @@ section {
 
 .invitation-text strong {
 
-    color: var(--olive);
+    color: #253326;
+
+    font-weight: 600;
 }
 
 
@@ -676,9 +714,9 @@ section {
 
 .countdown {
 
-    background: var(--olive);
+    background: #253326;
 
-    color: var(--paper);
+    color: #fbf8f1;
 
     text-align: center;
 }
@@ -691,7 +729,7 @@ section {
 
 .countdown .section-title {
 
-    color: var(--paper);
+    color: #fbf8f1;
 }
 
 .countdown-grid {
@@ -703,7 +741,7 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
     border-top:
         1px solid
@@ -716,7 +754,7 @@ section {
 
 .countdown-item {
 
-    padding: 25px 10px;
+    padding: 28px 10px;
 
     border-right:
         1px solid
@@ -760,7 +798,7 @@ section {
 
 .gallery {
 
-    background: var(--cream);
+    background: #f4f0e8;
 }
 
 .gallery-grid {
@@ -822,7 +860,7 @@ section {
 
 .details {
 
-    background: var(--paper);
+    background: #fbf8f1;
 
     text-align: center;
 }
@@ -836,10 +874,11 @@ section {
     display: grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(37,51,38,.18);
 }
 
 .detail {
@@ -847,7 +886,8 @@ section {
     padding: 40px 18px;
 
     border-right:
-        1px solid var(--border);
+        1px solid
+        rgba(37,51,38,.18);
 }
 
 .detail:last-child {
@@ -857,7 +897,7 @@ section {
 
 .detail-icon {
 
-    color: var(--gold);
+    color: #b9a06a;
 
     font-size: 21px;
 
@@ -877,7 +917,7 @@ section {
 
 .detail-text {
 
-    color: var(--muted);
+    color: #70766e;
 
     font-size: 11px;
 
@@ -891,9 +931,9 @@ section {
 
 .venue {
 
-    background: var(--olive-light);
+    background: #344936;
 
-    color: var(--paper);
+    color: #fbf8f1;
 
     text-align: center;
 }
@@ -904,7 +944,7 @@ section {
 
     margin: auto;
 
-    padding: 60px 25px;
+    padding: 65px 25px;
 
     border:
         1px solid
@@ -944,7 +984,7 @@ section {
 
     margin-top: 30px;
 
-    padding: 13px 23px;
+    padding: 14px 24px;
 
     border:
         1px solid
@@ -952,7 +992,7 @@ section {
 
     border-radius: 999px;
 
-    color: var(--paper);
+    color: #fbf8f1;
 
     font-size: 9px;
 
@@ -965,9 +1005,9 @@ section {
 
 .map-button:hover {
 
-    background: var(--paper);
+    background: #fbf8f1;
 
-    color: var(--olive);
+    color: #253326;
 }
 
 
@@ -977,7 +1017,7 @@ section {
 
 .rsvp {
 
-    background: var(--cream);
+    background: #f4f0e8;
 
     text-align: center;
 }
@@ -990,10 +1030,11 @@ section {
 
     padding: 60px 25px;
 
-    background: var(--paper);
+    background: #fbf8f1;
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(37,51,38,.18);
 }
 
 .rsvp-question {
@@ -1025,11 +1066,12 @@ section {
     padding: 13px 18px;
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(37,51,38,.18);
 
     background: transparent;
 
-    color: var(--text);
+    color: #1d241e;
 
     font-size: 10px;
 
@@ -1039,11 +1081,11 @@ section {
 .rsvp-button:hover,
 .rsvp-button.active {
 
-    background: var(--olive);
+    background: #253326;
 
     color: white;
 
-    border-color: var(--olive);
+    border-color: #253326;
 }
 
 .rsvp-form {
@@ -1067,7 +1109,8 @@ section {
     padding: 14px;
 
     border:
-        1px solid var(--border);
+        1px solid
+        rgba(37,51,38,.18);
 
     background: white;
 
@@ -1080,7 +1123,7 @@ section {
 
     border: none;
 
-    background: var(--olive);
+    background: #253326;
 
     color: white;
 
@@ -1103,14 +1146,14 @@ section {
         "Cormorant Garamond",
         serif;
 
-    font-size: 25px;
+    color: #253326;
 
-    color: var(--olive);
+    font-size: 25px;
 }
 
 
 /* =====================================================
-   FINAL
+   CLOSING
 ===================================================== */
 
 .closing {
@@ -1125,7 +1168,7 @@ section {
 
     text-align: center;
 
-    color: var(--paper);
+    color: #fbf8f1;
 
     background-image:
 
@@ -1134,7 +1177,7 @@ section {
             rgba(35,48,37,.85)
         ),
 
-        url("assets/photo-1.jpeg");
+        url("IMG_2763.jpeg");
 
     background-size: cover;
 
@@ -1182,7 +1225,7 @@ footer {
 
     padding: 22px;
 
-    background: var(--olive-dark);
+    background: #182219;
 
     color:
         rgba(255,255,255,.45);
@@ -1205,7 +1248,7 @@ footer {
 
     position: fixed;
 
-    z-index: 100;
+    z-index: 1000;
 
     right: 18px;
 
@@ -1236,7 +1279,7 @@ footer {
    MOBILE
 ===================================================== */
 
-@media(max-width:680px) {
+@media (max-width:680px) {
 
     .section {
 
@@ -1244,16 +1287,19 @@ footer {
             75px 18px;
     }
 
+
     .countdown-grid {
 
         grid-template-columns:
             repeat(2,1fr);
     }
 
+
     .countdown-item:nth-child(2) {
 
         border-right: none;
     }
+
 
     .countdown-item:nth-child(-n+2) {
 
@@ -1262,12 +1308,14 @@ footer {
             rgba(255,255,255,.12);
     }
 
+
     .gallery-grid {
 
         grid-template-columns: 1fr;
 
         gap: 12px;
     }
+
 
     .gallery-large {
 
@@ -1277,34 +1325,54 @@ footer {
             736 / 1050;
     }
 
+
     .gallery-small {
 
         aspect-ratio:
             736 / 1050;
     }
 
+
     .details-grid {
 
         grid-template-columns: 1fr;
     }
+
 
     .detail {
 
         border-right: none;
 
         border-bottom:
-            1px solid var(--border);
+            1px solid
+            rgba(37,51,38,.18);
     }
+
 
     .detail:last-child {
 
         border-bottom: none;
     }
 
+
     .hero-content {
 
         padding-bottom: 55px;
     }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(58px,15vw,90px);
+    }
+
+
+    .envelope {
+
+        width: 88vw;
+    }
+
 }
 
 </style>
@@ -1316,12 +1384,13 @@ footer {
 
 
 <!-- =====================================================
-     ENVELOPE INTRO
+     OPENING ENVELOPE
 ===================================================== -->
 
 <div class="intro" id="intro">
 
     <div class="intro-content">
+
 
         <div class="intro-label">
             Wedding Invitation
@@ -1340,9 +1409,11 @@ footer {
                     Our special day
                 </div>
 
+
                 <div class="envelope-names">
                     Сабыр & Рия
                 </div>
+
 
                 <div class="envelope-date">
                     27 • 04 • 2027
@@ -1370,6 +1441,7 @@ footer {
 
 
         <button
+            type="button"
             class="open-button"
             id="openButton"
         >
@@ -1384,7 +1456,7 @@ footer {
 
 
 <!-- =====================================================
-     MAIN
+     MAIN SITE
 ===================================================== -->
 
 <main id="main">
@@ -1427,12 +1499,13 @@ footer {
 
 
 <!-- =====================================================
-     INVITATION
+     INVITATION TEXT
 ===================================================== -->
 
 <section class="invitation">
 
     <div class="section">
+
 
         <div class="eyebrow">
             With love
@@ -1456,6 +1529,7 @@ footer {
 
         </p>
 
+
     </div>
 
 </section>
@@ -1469,6 +1543,7 @@ footer {
 <section class="countdown">
 
     <div class="section">
+
 
         <div class="eyebrow">
             Counting the days
@@ -1549,6 +1624,7 @@ footer {
 
         </div>
 
+
     </div>
 
 </section>
@@ -1556,12 +1632,13 @@ footer {
 
 
 <!-- =====================================================
-     GALLERY
+     PHOTO GALLERY
 ===================================================== -->
 
 <section class="gallery">
 
     <div class="section">
+
 
         <div class="eyebrow">
             Our moments
@@ -1579,7 +1656,7 @@ footer {
             <div class="gallery-photo gallery-large">
 
                 <img
-                    src="assets/photo-2.jpeg"
+                    src="IMG_2765.jpeg"
                     alt="Сабыр жана Рия"
                 >
 
@@ -1589,7 +1666,7 @@ footer {
             <div class="gallery-photo gallery-small">
 
                 <img
-                    src="assets/photo-1.jpeg"
+                    src="IMG_2763.jpeg"
                     alt="Wedding rings"
                 >
 
@@ -1599,7 +1676,7 @@ footer {
             <div class="gallery-photo gallery-small">
 
                 <img
-                    src="assets/photo-3.jpeg"
+                    src="IMG_2766.jpeg"
                     alt="Wedding bouquet"
                 >
 
@@ -1608,6 +1685,7 @@ footer {
 
         </div>
 
+
     </div>
 
 </section>
@@ -1615,12 +1693,13 @@ footer {
 
 
 <!-- =====================================================
-     DETAILS
+     EVENT DETAILS
 ===================================================== -->
 
 <section class="details">
 
     <div class="section">
+
 
         <div class="eyebrow">
             Save the date
@@ -1641,9 +1720,11 @@ footer {
                     ◷
                 </div>
 
+
                 <div class="detail-title">
                     Убакыт
                 </div>
+
 
                 <div class="detail-text">
 
@@ -1662,9 +1743,11 @@ footer {
                     ♢
                 </div>
 
+
                 <div class="detail-title">
                     Жайы
                 </div>
+
 
                 <div class="detail-text">
 
@@ -1683,9 +1766,11 @@ footer {
                     ✦
                 </div>
 
+
                 <div class="detail-title">
                     Дарек
                 </div>
+
 
                 <div class="detail-text">
 
@@ -1699,6 +1784,7 @@ footer {
 
 
         </div>
+
 
     </div>
 
@@ -1714,7 +1800,9 @@ footer {
 
     <div class="section">
 
+
         <div class="venue-card">
+
 
             <div class="eyebrow">
                 Our venue
@@ -1740,7 +1828,9 @@ footer {
                 Картадан көрүү
             </a>
 
+
         </div>
+
 
     </div>
 
@@ -1756,7 +1846,9 @@ footer {
 
     <div class="section">
 
+
         <div class="rsvp-card">
+
 
             <div class="eyebrow">
                 RSVP
@@ -1776,6 +1868,7 @@ footer {
 
 
                 <button
+                    type="button"
                     class="rsvp-button"
                     data-answer="yes"
                 >
@@ -1784,6 +1877,7 @@ footer {
 
 
                 <button
+                    type="button"
                     class="rsvp-button"
                     data-answer="no"
                 >
@@ -1799,6 +1893,7 @@ footer {
                 class="rsvp-form"
                 id="rsvpForm"
             >
+
 
                 <input
                     class="rsvp-input"
@@ -1827,6 +1922,7 @@ footer {
                     Жооп жөнөтүү
                 </button>
 
+
             </form>
 
 
@@ -1837,6 +1933,7 @@ footer {
 
 
         </div>
+
 
     </div>
 
@@ -1851,6 +1948,7 @@ footer {
 <section class="closing">
 
     <div>
+
 
         <div class="closing-monogram">
             S & R
@@ -1868,6 +1966,7 @@ footer {
             жолугушканча 🤍
 
         </p>
+
 
     </div>
 
@@ -1897,7 +1996,7 @@ footer {
 >
 
     <source
-        src="assets/ordinary.mp3"
+        src="Alex Warren - Ordinary.mp3"
         type="audio/mpeg"
     >
 
@@ -1905,9 +2004,9 @@ footer {
 
 
 <button
+    type="button"
     class="music-button"
     id="musicButton"
-    aria-label="Музыка"
 >
     ♫
 </button>
@@ -1943,28 +2042,22 @@ const music =
 const musicButton =
     document.getElementById("musicButton");
 
+
 let musicPlaying = false;
 
 
 
 /* =====================================================
-   OPEN ENVELOPE
+   OPEN INVITATION
 ===================================================== */
 
 openButton.addEventListener(
     "click",
-    async function () {
+    function () {
 
 
         /*
-            Start envelope animation
-        */
-
-        envelope.classList.add("open");
-
-
-        /*
-            Disable button
+           Disable button
         */
 
         openButton.disabled = true;
@@ -1973,50 +2066,69 @@ openButton.addEventListener(
 
 
         /*
-            Start music
-
-            Since this happens after
-            user's click, mobile browsers
-            normally allow playback.
+           Open envelope
         */
 
-        try {
-
-            await music.play();
-
-            musicPlaying = true;
-
-            musicButton.textContent = "♫";
-
-        }
-
-        catch(error) {
-
-            console.log(
-                "Music autoplay blocked"
-            );
-
-        }
+        envelope.classList.add(
+            "open"
+        );
 
 
         /*
-            Show main website
+           Start music
+
+           The user has just clicked,
+           therefore browser allows audio.
+        */
+
+        music.volume = 0.65;
+
+
+        music.play()
+            .then(function () {
+
+                musicPlaying = true;
+
+                musicButton.textContent =
+                    "♫";
+
+            })
+            .catch(function () {
+
+                console.log(
+                    "Music could not autoplay."
+                );
+
+            });
+
+
+        /*
+           After envelope opens,
+           show entire website.
         */
 
         setTimeout(
             function () {
 
                 intro.classList.add(
-                    "hidden"
+                    "hide"
                 );
+
 
                 document.body.classList.remove(
                     "locked"
                 );
 
+
                 main.classList.add(
-                    "visible"
+                    "show"
                 );
+
+
+                /*
+                   Make sure page
+                   starts at top.
+                */
 
                 window.scrollTo(
                     0,
@@ -2033,12 +2145,12 @@ openButton.addEventListener(
 
 
 /* =====================================================
-   MUSIC BUTTON
+   MUSIC CONTROL
 ===================================================== */
 
 musicButton.addEventListener(
     "click",
-    async function () {
+    function () {
 
 
         if (musicPlaying) {
@@ -2046,34 +2158,35 @@ musicButton.addEventListener(
 
             music.pause();
 
+
             musicPlaying = false;
+
 
             musicButton.textContent =
                 "♪";
+
 
         }
 
         else {
 
 
-            try {
+            music.play()
+                .then(function () {
 
-                await music.play();
+                    musicPlaying = true;
 
-                musicPlaying = true;
+                    musicButton.textContent =
+                        "♫";
 
-                musicButton.textContent =
-                    "♫";
+                })
+                .catch(function () {
 
-            }
+                    console.log(
+                        "Music unavailable."
+                    );
 
-            catch(error) {
-
-                console.log(
-                    "Music could not start"
-                );
-
-            }
+                });
 
         }
 
@@ -2088,13 +2201,9 @@ musicButton.addEventListener(
 
 
 /*
-    Wedding:
-
-    27 April 2027
-    15:00
-
-    Kyrgyzstan:
-    UTC +6
+   27 April 2027
+   15:00
+   Kyrgyzstan UTC+6
 */
 
 const weddingDate =
@@ -2103,130 +2212,119 @@ const weddingDate =
     ).getTime();
 
 
-
 function updateCountdown() {
 
 
     const now =
-        new Date().getTime();
+        Date.now();
 
 
-    let difference =
+    let distance =
         weddingDate - now;
 
 
     /*
-        If wedding date
-        already passed
+       Wedding has passed
     */
 
-    if (difference < 0) {
+    if (distance < 0) {
 
-        difference = 0;
+        distance = 0;
 
     }
 
 
     /*
-        DAYS
+       Days
     */
 
     const days =
         Math.floor(
-            difference /
+            distance /
             (1000 * 60 * 60 * 24)
         );
 
 
-    difference %=
-        (1000 * 60 * 60 * 24);
-
-
     /*
-        HOURS
+       Hours
     */
 
     const hours =
         Math.floor(
-            difference /
+            (distance %
+            (1000 * 60 * 60 * 24)) /
             (1000 * 60 * 60)
         );
 
 
-    difference %=
-        (1000 * 60 * 60);
-
-
     /*
-        MINUTES
+       Minutes
     */
 
     const minutes =
         Math.floor(
-            difference /
+            (distance %
+            (1000 * 60 * 60)) /
             (1000 * 60)
         );
 
 
-    difference %=
-        (1000 * 60);
-
-
     /*
-        SECONDS
+       Seconds
     */
 
     const seconds =
         Math.floor(
-            difference /
+            (distance %
+            (1000 * 60)) /
             1000
         );
 
 
     /*
-        DISPLAY
+       Display
     */
 
     document.getElementById(
         "days"
     ).textContent =
-        String(days)
-            .padStart(2,"0");
+        String(days).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "hours"
     ).textContent =
-        String(hours)
-            .padStart(2,"0");
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "minutes"
     ).textContent =
-        String(minutes)
-            .padStart(2,"0");
+        String(minutes).padStart(
+            2,
+            "0"
+        );
 
 
     document.getElementById(
         "seconds"
     ).textContent =
-        String(seconds)
-            .padStart(2,"0");
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
 
-/*
-    Run immediately
-*/
-
 updateCountdown();
 
-
-/*
-    Update every second
-*/
 
 setInterval(
     updateCountdown,
@@ -2249,28 +2347,26 @@ const thankYou =
         "thankYou"
     );
 
+
 let guestAnswer = "";
 
 
 
-/*
-    RSVP buttons
-*/
-
 document
-    .querySelectorAll(".rsvp-button")
+    .querySelectorAll(
+        ".rsvp-button"
+    )
     .forEach(
-        function(button) {
+        function (button) {
 
 
             button.addEventListener(
                 "click",
-                function() {
+                function () {
 
 
                     /*
-                        Remove active
-                        from all buttons
+                       Remove active
                     */
 
                     document
@@ -2278,7 +2374,7 @@ document
                             ".rsvp-button"
                         )
                         .forEach(
-                            function(item) {
+                            function (item) {
 
                                 item.classList.remove(
                                     "active"
@@ -2289,7 +2385,7 @@ document
 
 
                     /*
-                        Activate selected
+                       Activate selected
                     */
 
                     button.classList.add(
@@ -2302,7 +2398,7 @@ document
 
 
                     /*
-                        YES
+                       YES
                     */
 
                     if (
@@ -2319,11 +2415,12 @@ document
                         thankYou.style.display =
                             "none";
 
+
                     }
 
 
                     /*
-                        NO
+                       NO
                     */
 
                     else {
@@ -2357,7 +2454,7 @@ document
 
 rsvpForm.addEventListener(
     "submit",
-    function(event) {
+    function (event) {
 
 
         event.preventDefault();
@@ -2380,10 +2477,6 @@ rsvpForm.addEventListener(
                 .value;
 
 
-        /*
-            Check fields
-        */
-
         if (
             !name ||
             !count
@@ -2395,8 +2488,8 @@ rsvpForm.addEventListener(
 
 
         /*
-            Save response
-            in browser
+           Save response
+           locally on device.
         */
 
         localStorage.setItem(
@@ -2409,12 +2502,11 @@ rsvpForm.addEventListener(
 
                 count: count,
 
-                answer:
-                    guestAnswer,
+                answer: guestAnswer,
 
                 savedAt:
                     new Date()
-                        .toISOString()
+                    .toISOString()
 
             })
 
@@ -2422,7 +2514,7 @@ rsvpForm.addEventListener(
 
 
         /*
-            Hide form
+           Hide form
         */
 
         rsvpForm.style.display =
@@ -2430,11 +2522,13 @@ rsvpForm.addEventListener(
 
 
         /*
-            Show confirmation
+           Show confirmation
         */
 
         thankYou.textContent =
-            `Рахмат, ${name}! Сизди күтөбүз 🤍`;
+            "Рахмат, " +
+            name +
+            "! Сизди күтөбүз 🤍";
 
 
         thankYou.style.display =
@@ -2447,5 +2541,4 @@ rsvpForm.addEventListener(
 </script>
 
 </body>
-
 </html>
